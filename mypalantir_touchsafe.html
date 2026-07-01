@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#070a10">
+<title>My Palantir</title>
+<style>
+:root{--bg:#070a10;--card:#111827;--card2:#0d1420;--line:#263246;--text:#eef4ff;--muted:#96a3b8;--accent:#7c9cff;--good:#38d996;--warn:#fbbf24;--bad:#fb7185;--blue:#38bdf8;--r:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",Segoe UI,sans-serif;padding:calc(env(safe-area-inset-top) + 12px) 14px calc(env(safe-area-inset-bottom) + 96px);font-size:15px}button,input,select,textarea{font:inherit}header{position:sticky;top:0;z-index:10;margin:-12px -14px 12px;padding:calc(env(safe-area-inset-top) + 12px) 14px 10px;background:linear-gradient(180deg,rgba(7,10,16,.98),rgba(7,10,16,.88));backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand h1{margin:0;font-size:22px;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.chip{background:#1b2740;border:1px solid #31425f;color:#dce8ff;border-radius:999px;padding:7px 10px;font-size:12px}.status{margin-top:9px;padding:9px 10px;border-radius:14px;border:1px solid #3a465d;background:#0d1420;color:#cbd5e1;font-size:12px;line-height:1.4}.status.good{border-color:rgba(56,217,150,.45);color:#b8f7d9}.status.bad{border-color:rgba(251,113,133,.55);color:#ffc0ca}main{max-width:760px;margin:0 auto}.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:8px 10px calc(env(safe-area-inset-bottom) + 8px);background:rgba(7,10,16,.95);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.08)}.nav a{text-decoration:none;color:var(--muted);background:#0d1420;border:1px solid #192235;border-radius:15px;padding:9px 3px;text-align:center;font-size:12px}.nav b{display:block;font-size:17px;margin-bottom:2px}.nav a:active,.nav a:focus{background:#1c2943;color:white}section{scroll-margin-top:96px;margin-bottom:16px}.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:14px;margin:10px 0;box-shadow:0 10px 28px rgba(0,0,0,.34)}h2{font-size:18px;margin:0 0 12px;letter-spacing:-.3px}h3{font-size:15px;margin:14px 0 8px;color:#e6eefc}.sub{font-size:12px;color:var(--muted);line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{min-height:104px}.metric .label{font-size:12px;color:var(--muted)}.metric .val{font-size:24px;font-weight:900;letter-spacing:-.6px;margin-top:7px}.metric .hint{font-size:11px;color:var(--muted);line-height:1.35;margin-top:5px}.scorebox{display:grid;grid-template-columns:1fr 122px;gap:14px;align-items:center}.ring{width:116px;height:116px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) 0%,#223047 0);box-shadow:inset 0 0 0 10px rgba(0,0,0,.18)}.ring span{width:84px;height:84px;display:grid;place-items:center;border-radius:50%;background:#0b111a;border:1px solid rgba(255,255,255,.08);font-size:26px;font-weight:900}.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.pill{padding:7px 9px;border-radius:999px;border:1px solid var(--line);background:#101827;color:#dbe4f3;font-size:12px}.pill.good{border-color:rgba(56,217,150,.45);color:#b8f7d9}.pill.warn{border-color:rgba(251,191,36,.45);color:#ffe08a}.pill.bad{border-color:rgba(251,113,133,.55);color:#ffc0ca}.domain{display:grid;grid-template-columns:84px 1fr 40px;gap:8px;align-items:center;margin:10px 0}.domain span{font-size:12px;color:#cbd5e1}.domain em{font-style:normal;text-align:right;font-size:12px;color:var(--muted)}.bar{height:9px;background:#202a3d;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--accent))}label{display:block;color:#aab7cb;font-size:12px;margin:10px 0 5px}input,select,textarea{width:100%;min-height:46px;background:#080d15;color:var(--text);border:1px solid var(--line);border-radius:14px;padding:12px;outline:none;-webkit-user-select:text;user-select:text}input:focus,select:focus,textarea:focus{border-color:#7290ff;box-shadow:0 0 0 3px rgba(124,156,255,.18)}textarea{min-height:90px;resize:vertical}.check{display:flex;align-items:center;gap:8px;background:#0a1019;border:1px solid var(--line);border-radius:14px;padding:9px 10px;margin-top:8px}.check input{width:22px;min-height:22px;height:22px;padding:0}.check span{font-size:14px;color:#dfe8f8}.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:14px;padding:12px 14px;background:#24334e;color:#fff;font-weight:800;min-height:46px}.btn.primary{background:linear-gradient(135deg,#526cff,#8b5cf6)}.btn.good{background:#127a55}.btn.warn{background:#a16207}.btn.bad{background:#9f1239}.btn.ghost{background:#111827;border:1px solid var(--line);color:#e2e8f0}.btn:active{transform:scale(.98)}.records{display:flex;flex-direction:column;gap:8px}.record{border:1px solid var(--line);background:#0d1420;border-radius:15px;padding:11px}.record b{font-size:14px}.record small{display:block;color:var(--muted);line-height:1.45;margin-top:4px}.quote{border-left:3px solid var(--accent);padding:8px 0 8px 11px;color:#e1eaff;line-height:1.55}.money{font-variant-numeric:tabular-nums}.chart{height:132px;display:flex;align-items:flex-end;gap:5px;border-bottom:1px solid var(--line);padding-top:8px}.col{flex:1;min-width:9px;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#7c9cff,#38bdf8)}.tiny{font-size:11px;color:var(--muted);line-height:1.45;margin-top:8px}.hidden{display:none!important}@media(max-width:430px){.grid3{grid-template-columns:1fr 1fr}.metric .val{font-size:21px}.scorebox{grid-template-columns:1fr 108px}.ring{width:104px;height:104px}.ring span{width:76px;height:76px;font-size:23px}.card{padding:13px}.domain{grid-template-columns:76px 1fr 36px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div class="brand"><h1>My Palantir</h1><p>개인 경영 대시보드 · Touch Safe</p></div><div class="chip" id="todayText">오늘</div></div>
+ <div id="runtimeStatus" class="status bad">JavaScript 미작동 상태입니다. Safari 설정에서 JavaScript가 꺼져 있으면 저장/계산이 안 됩니다.</div>
+ <noscript><div class="status bad">현재 JavaScript가 꺼져 있습니다. 설정 → Safari → 고급 → JavaScript를 켜야 대시보드가 저장됩니다.</div></noscript>
+</header>
+
+<main>
+<section id="home">
+ <div class="card">
+  <div class="scorebox">
+   <div><h2>현재 평가</h2><div class="sub" id="periodText">오늘 기록 기준</div><div class="pillrow" id="flags"><span class="pill bad">기록 필요</span></div></div>
+   <div><div class="ring" id="scoreRing"><span id="scoreNum">0</span></div><div class="sub" id="gradeText" style="text-align:center;margin-top:8px">기록 필요</div></div>
+  </div>
+ </div>
+ <div class="card"><h2>6대 지휘판</h2><div id="domainBars"></div></div>
+ <div class="grid">
+  <div class="card metric"><div class="label">순현금흐름</div><div class="val money" id="mNet">₩0</div><div class="hint" id="mCashHint">수입 - 지출</div></div>
+  <div class="card metric"><div class="label">총 운동</div><div class="val" id="mWorkout">0분</div><div class="hint">운동 기록</div></div>
+  <div class="card metric"><div class="label">평균 수면</div><div class="val" id="mSleep">0h</div><div class="hint">회복 핵심</div></div>
+  <div class="card metric"><div class="label">일/과외/공부</div><div class="val" id="mWork">0h</div><div class="hint">현장+과외+공부+콘텐츠</div></div>
+  <div class="card metric"><div class="label">남은 대출</div><div class="val money" id="mLoanLeft">₩0</div><div class="hint" id="mLoanHint">총대출 / 신규대출</div></div>
+  <div class="card metric"><div class="label">대출 이자율</div><div class="val" id="mLoanRate">0%</div><div class="hint" id="mLoanPayHint">상환 / 이자납부</div></div>
+ </div>
+ <div class="card"><h2>다음 1수</h2><div class="quote" id="nextAction">기록을 입력하면 자동 판단합니다.</div></div>
+ <div class="card"><h2>최근 점수 흐름</h2><div class="chart" id="scoreChart"></div><div class="tiny">최근 14개 기록 기준</div></div>
+</section>
+
+<section id="record">
+ <div class="card"><h2>✍️ 기록 입력</h2><div class="sub">이 버전은 탭 숨김을 없앴습니다. 모든 입력칸이 바로 눌려야 정상입니다.</div>
+  <div class="grid"><div><label>날짜</label><input id="date" type="date"></div><div><label>하루 태그</label><select id="dayTag"><option>평범</option><option>승리</option><option>회복</option><option>위기</option><option>가족</option><option>돈</option><option>운동</option><option>신앙</option><option>여행</option><option>특별 이벤트</option></select></div></div>
+  <div class="btns"><button class="btn ghost" type="button" onclick="loadByDate()">날짜 불러오기</button><button class="btn primary" type="button" onclick="saveEntry()">저장 / 수정</button><button class="btn bad" type="button" onclick="deleteEntry()">이 날짜 삭제</button></div>
+ </div>
+
+ <div class="card"><h2>🎯 목표 / To-do</h2>
+  <label>오늘 1번 목표</label><input id="top1" placeholder="예: 현장 완수 + 과외 집중"><label class="check"><input id="done1" type="checkbox"><span>1번 목표 완료</span></label>
+  <label>오늘 2번 목표</label><input id="top2" placeholder="예: 운동 30분"><label class="check"><input id="done2" type="checkbox"><span>2번 목표 완료</span></label>
+  <label>오늘 3번 목표</label><input id="top3" placeholder="예: 지출 기록"><label class="check"><input id="done3" type="checkbox"><span>3번 목표 완료</span></label>
+  <label>추가 To-do / 메모</label><textarea id="todoFree" placeholder="오늘 처리할 것"></textarea>
+ </div>
+
+ <div class="card"><h2>💰 현금흐름 / 투자</h2>
+  <div class="grid3"><div><label>수입 ₩</label><input id="cashIn" type="number" inputmode="numeric" placeholder="0"></div><div><label>지출 ₩</label><input id="cashOut" type="number" inputmode="numeric" placeholder="0"></div><div><label>현금잔고 ₩</label><input id="cashBalance" type="number" inputmode="numeric" placeholder="0"></div></div>
+  <div class="grid3"><div><label>주식평가액 ₩</label><input id="stockValue" type="number" inputmode="numeric" placeholder="0"></div><div><label>코인평가액 ₩</label><input id="coinValue" type="number" inputmode="numeric" placeholder="0"></div><div><label>투자손익 ₩</label><input id="investPnl" type="number" inputmode="numeric" placeholder="0"></div></div>
+  <div class="grid"><div><label>부채잔액 ₩</label><input id="debt" type="number" inputmode="numeric" placeholder="0"></div><div><label>투자 메모</label><input id="investMemo" placeholder="예: 삼성전자, BTC, PLTR"></div></div>
+ </div>
+
+ <div class="card"><h2>🏦 대출관리</h2><div class="sub">신규대출·총 대출·남은 대출·이자율을 따로 관리합니다.</div>
+  <div class="grid3"><div><label>신규대출 ₩</label><input id="newLoan" type="number" inputmode="numeric" placeholder="0"></div><div><label>총 대출금액 ₩</label><input id="loanTotal" type="number" inputmode="numeric" placeholder="0"></div><div><label>남은 대출금액 ₩</label><input id="loanRemaining" type="number" inputmode="numeric" placeholder="0"></div></div>
+  <div class="grid3"><div><label>이자율 %</label><input id="loanInterestRate" type="number" inputmode="decimal" step="0.01" placeholder="0"></div><div><label>월 상환예정 ₩</label><input id="loanPayment" type="number" inputmode="numeric" placeholder="0"></div><div><label>원금상환 ₩</label><input id="loanPrincipalPaid" type="number" inputmode="numeric" placeholder="0"></div></div>
+  <div class="grid"><div><label>이자납부 ₩</label><input id="loanInterestPaid" type="number" inputmode="numeric" placeholder="0"></div><div><label>대출 메모</label><input id="loanMemo" placeholder="예: 신보, 하나은행, 디딤돌, 마통"></div></div>
+ </div>
+
+ <div class="card"><h2>🛠️ 시간 / 생산성</h2>
+  <div class="grid3"><div><label>현장 h</label><input id="siteHours" type="number" step="0.1" inputmode="decimal" placeholder="0"></div><div><label>과외 h</label><input id="lessonHours" type="number" step="0.1" inputmode="decimal" placeholder="0"></div><div><label>공부 h</label><input id="studyHours" type="number" step="0.1" inputmode="decimal" placeholder="0"></div></div>
+  <div class="grid"><div><label>콘텐츠 min</label><input id="youtubeMin" type="number" inputmode="numeric" placeholder="0"></div><div><label>가장 생산적이었던 일</label><input id="deepWork" placeholder="예: 대시보드, 과외준비, Delyqon"></div></div>
+ </div>
+
+ <div class="card"><h2>🛌 건강 / 몸상태</h2>
+  <div class="grid3"><div><label>수면 h</label><input id="sleepHours" type="number" step="0.1" inputmode="decimal" placeholder="6.0"></div><div><label>수면질 1-10</label><input id="sleepQuality" type="number" inputmode="numeric" min="1" max="10" placeholder="7"></div><div><label>운동 min</label><input id="workoutMin" type="number" inputmode="numeric" placeholder="0"></div></div>
+  <div class="grid3"><div><label>체중 kg</label><input id="weight" type="number" step="0.1" inputmode="decimal" placeholder="84.0"></div><div><label>수축혈압</label><input id="sbp" type="number" inputmode="numeric" placeholder="120"></div><div><label>이완혈압</label><input id="dbp" type="number" inputmode="numeric" placeholder="80"></div></div>
+  <div class="grid3"><div><label>안정심박</label><input id="restingHr" type="number" inputmode="numeric" placeholder="68"></div><div><label>몸상태 1-10</label><input id="bodyScore" type="number" inputmode="numeric" min="1" max="10" placeholder="7"></div><div><label>통증 0-10</label><input id="painScore" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div></div>
+  <div class="grid"><div><label>운동 종류</label><input id="workoutType" placeholder="샌드백, 케틀벨, 자전거"></div><div><label>흡연 개비</label><input id="smoking" type="number" inputmode="numeric" placeholder="0"></div></div>
+ </div>
+
+ <div class="card"><h2>🧠 마음상태 / 감정</h2>
+  <div class="grid3"><div><label>전체 기분 1-10</label><input id="moodOverall" type="number" inputmode="numeric" min="1" max="10" placeholder="6"></div><div><label>감사/기쁨 0-10</label><input id="gratitude" type="number" inputmode="numeric" min="0" max="10" placeholder="5"></div><div><label>집중도 1-10</label><input id="focusScore" type="number" inputmode="numeric" min="1" max="10" placeholder="6"></div></div>
+  <div class="grid3"><div><label>우울</label><input id="depression" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div><div><label>화남</label><input id="anger" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div><div><label>짜증</label><input id="irritation" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div></div>
+  <div class="grid3"><div><label>슬픔</label><input id="sadness" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div><div><label>분노</label><input id="rage" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div><div><label>걱정/불안</label><input id="anxiety" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div></div>
+  <div class="grid"><div><label>스트레스 0-10</label><input id="stress" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div><div><label>기도/묵상 min</label><input id="prayerMin" type="number" inputmode="numeric" placeholder="0"></div></div>
+ </div>
+
+ <div class="card"><h2>🏠 관계 / 이벤트 / 생활</h2>
+  <div class="grid3"><div><label>성관계 횟수</label><input id="sexCount" type="number" inputmode="numeric" placeholder="0"></div><div><label>음주량</label><input id="alcoholDrinks" type="number" step="0.5" inputmode="decimal" placeholder="0"></div><div><label>가족시간 h</label><input id="familyHours" type="number" step="0.1" inputmode="decimal" placeholder="0"></div></div>
+  <div class="grid3"><div><label>부부대화 min</label><input id="spouseTalkMin" type="number" inputmode="numeric" placeholder="0"></div><div><label>관계만족 1-10</label><input id="coupleQuality" type="number" inputmode="numeric" min="1" max="10" placeholder="7"></div><div><label>갈등강도 0-10</label><input id="conflictLevel" type="number" inputmode="numeric" min="0" max="10" placeholder="0"></div></div>
+  <label>여행 / 특별 이벤트 / 사고 / 기념일</label><textarea id="travelEvent" placeholder="예: 가족 여행, 아이 병원, 큰 지출, 좋은 일"></textarea>
+  <label>오늘 메모</label><textarea id="memo" placeholder="오늘의 진짜 원인, 배운 점, 내일 조정할 것"></textarea>
+  <div class="btns"><button class="btn primary" type="button" onclick="saveEntry()">저장 / 수정</button><button class="btn ghost" type="button" onclick="clearForm()">새 기록</button></div>
+ </div>
+</section>
+
+<section id="analysis">
+ <div class="card"><h2>🔎 분석</h2>
+  <div class="grid"><div><label>기준 날짜</label><input id="analysisDate" type="date"></div><div><label>분석 단위</label><select id="analysisPeriod"><option value="day">일별</option><option value="week">주별</option><option value="month">월별</option><option value="year">연별</option></select></div></div>
+  <div class="btns"><button class="btn primary" type="button" onclick="renderAll()">분석 갱신</button></div>
+ </div>
+ <div class="card"><h2>객관 평가</h2><div id="analysisSummary" class="sub">기록 후 표시됩니다.</div></div>
+ <div class="card"><h2>기록 목록</h2><div id="recordList" class="records"></div></div>
+</section>
+
+<section id="goals">
+ <div class="card"><h2>🎯 목표 설정</h2>
+  <div class="grid3"><div><label>목표 체중 kg</label><input id="setTargetWeight" type="number" step="0.1"></div><div><label>일 운동 min</label><input id="setDailyExercise" type="number"></div><div><label>주 운동 min</label><input id="setWeeklyExercise" type="number"></div></div>
+  <div class="grid3"><div><label>일 목표수면 h</label><input id="setTargetSleep" type="number" step="0.1"></div><div><label>일 생산시간 h</label><input id="setDailyWork" type="number" step="0.1"></div><div><label>월 목표수입 ₩</label><input id="setMonthlyIncome" type="number"></div></div>
+  <div class="grid3"><div><label>월 목표순현금 ₩</label><input id="setMonthlyNet" type="number"></div><div><label>목표 최대 대출잔액 ₩</label><input id="setTargetMaxLoan" type="number"></div><div><label>월 목표 대출상환 ₩</label><input id="setMonthlyLoanPay" type="number"></div></div>
+  <label>올해 핵심 목표</label><textarea id="setYearGoals"></textarea>
+  <div class="btns"><button class="btn primary" type="button" onclick="saveSettings()">목표 저장</button><button class="btn ghost" type="button" onclick="resetSettings()">기본값 복구</button></div>
+ </div>
+</section>
+
+<section id="data">
+ <div class="card"><h2>💾 데이터 관리</h2><div class="sub">기록은 이 아이폰 브라우저에 저장됩니다. 기기 변경 전 JSON 백업을 저장하세요.</div>
+  <div class="btns"><button class="btn primary" type="button" onclick="exportJson()">JSON 백업</button><button class="btn good" type="button" onclick="exportCsv()">CSV 내보내기</button><button class="btn ghost" type="button" onclick="copySummary()">요약 복사</button><button class="btn warn" type="button" onclick="wipeAll()">전체 초기화</button></div>
+  <label>JSON 가져오기</label><input id="importFile" type="file" accept="application/json">
+ </div>
+</section>
+</main>
+
+<nav class="nav">
+ <a href="#home"><b>📊</b>홈</a><a href="#record"><b>✍️</b>기록</a><a href="#analysis"><b>🔎</b>분석</a><a href="#goals"><b>🎯</b>목표</a><a href="#data"><b>💾</b>데이터</a>
+</nav>
+<script>
+var KEY='myPalantir.touchsafe.v1';
+var fields=['date','dayTag','top1','top2','top3','done1','done2','done3','todoFree','cashIn','cashOut','cashBalance','stockValue','coinValue','investPnl','debt','investMemo','newLoan','loanTotal','loanRemaining','loanInterestRate','loanPayment','loanPrincipalPaid','loanInterestPaid','loanMemo','siteHours','lessonHours','studyHours','youtubeMin','deepWork','sleepHours','sleepQuality','workoutMin','weight','sbp','dbp','restingHr','bodyScore','painScore','workoutType','smoking','moodOverall','gratitude','focusScore','depression','anger','irritation','sadness','rage','anxiety','stress','prayerMin','sexCount','alcoholDrinks','familyHours','spouseTalkMin','coupleQuality','conflictLevel','travelEvent','memo'];
+var nums={'cashIn':1,'cashOut':1,'cashBalance':1,'stockValue':1,'coinValue':1,'investPnl':1,'debt':1,'newLoan':1,'loanTotal':1,'loanRemaining':1,'loanInterestRate':1,'loanPayment':1,'loanPrincipalPaid':1,'loanInterestPaid':1,'siteHours':1,'lessonHours':1,'studyHours':1,'youtubeMin':1,'sleepHours':1,'sleepQuality':1,'workoutMin':1,'weight':1,'sbp':1,'dbp':1,'restingHr':1,'bodyScore':1,'painScore':1,'smoking':1,'moodOverall':1,'gratitude':1,'focusScore':1,'depression':1,'anger':1,'irritation':1,'sadness':1,'rage':1,'anxiety':1,'stress':1,'prayerMin':1,'sexCount':1,'alcoholDrinks':1,'familyHours':1,'spouseTalkMin':1,'coupleQuality':1,'conflictLevel':1};
+var defaults={targetWeight:82,dailyExercise:30,weeklyExercise:180,targetSleep:7,dailyWork:10,monthlyIncome:3000000,monthlyNet:1000000,targetMaxLoan:100000000,monthlyLoanPay:500000,yearGoals:'1) 현금흐름 플러스\n2) 대출잔액 관리\n3) 체중 82kg / 주 180분 운동\n4) AI 사업 또는 유튜브 수익화\n5) 가족·신앙·멘탈 유지'};
+var state={settings:{},entries:{}};
+function el(id){return document.getElementById(id)}
+function today(){return new Date().toISOString().slice(0,10)}
+function n(v){var x=parseFloat(v);return isFinite(x)?x:0}
+function clamp(x){return Math.max(0,Math.min(100,x))}
+function won(x){return '₩'+Math.round(n(x)).toLocaleString('ko-KR')}
+function one(x){return (Math.round(n(x)*10)/10).toString()}
+function loadState(){try{var raw=localStorage.getItem(KEY);if(raw){state=JSON.parse(raw);return}}catch(e){}state={settings:copy(defaults),entries:{}}}
+function saveState(){try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch(e){setStatus('저장공간 접근 실패: '+e.message,false);return false}}
+function copy(o){var r={};for(var k in o){r[k]=o[k]}return r}
+function setStatus(msg,ok){var s=el('runtimeStatus');if(!s)return;s.textContent=msg;s.className='status '+(ok?'good':'bad')}
+function getEntryFromForm(){var e={};for(var i=0;i<fields.length;i++){var k=fields[i],x=el(k);if(!x)continue;if(x.type==='checkbox')e[k]=x.checked;else e[k]=nums[k]?n(x.value):(x.value||'').trim()}if(!e.date)e.date=today();return e}
+function putEntryToForm(e){for(var i=0;i<fields.length;i++){var k=fields[i],x=el(k);if(!x)continue;if(x.type==='checkbox')x.checked=!!e[k];else x.value=(e[k]!==undefined&&e[k]!==null)?e[k]:''}if(el('date')&&!el('date').value)el('date').value=today()}
+function blankEntry(d){return {date:d||today(),dayTag:'평범'}}
+function loadByDate(){var d=el('date').value||today();putEntryToForm(state.entries[d]||blankEntry(d));renderAll();location.hash='record'}
+function saveEntry(){var e=getEntryFromForm();state.entries[e.date]=e;if(saveState()){setStatus(e.date+' 저장 완료. 입력칸과 버튼이 정상 작동 중입니다.',true)}putEntryToForm(e);renderAll()}
+function deleteEntry(){var d=el('date').value||today();if(confirm(d+' 기록을 삭제할까요?')){delete state.entries[d];saveState();putEntryToForm(blankEntry(d));renderAll()}}
+function clearForm(){putEntryToForm(blankEntry(today()));location.hash='record'}
+function dateObj(s){return new Date(s+'T12:00:00')}
+function dateStr(d){return d.toISOString().slice(0,10)}
+function period(kind,base){var d=dateObj(base||today()),s=new Date(d),e=new Date(d);if(kind==='week'){var day=(d.getDay()+6)%7;s.setDate(d.getDate()-day);e=new Date(s);e.setDate(s.getDate()+6)}else if(kind==='month'){s=new Date(d.getFullYear(),d.getMonth(),1,12);e=new Date(d.getFullYear(),d.getMonth()+1,0,12)}else if(kind==='year'){s=new Date(d.getFullYear(),0,1,12);e=new Date(d.getFullYear(),11,31,12)}return {start:dateStr(s),end:dateStr(e)}}
+function periodEntries(p){var arr=[];for(var k in state.entries){var e=state.entries[k];if(e.date>=p.start&&e.date<=p.end)arr.push(e)}arr.sort(function(a,b){return a.date>b.date?1:-1});return arr}
+function sum(arr,k){var t=0;for(var i=0;i<arr.length;i++)t+=n(arr[i][k]);return t}
+function avg(arr){if(!arr.length)return 0;var t=0;for(var i=0;i<arr.length;i++)t+=n(arr[i]);return t/arr.length}
+function latest(arr,k){for(var i=arr.length-1;i>=0;i--){if(n(arr[i][k])!==0)return n(arr[i][k])}return 0}
+function goalScore(e){var g=0,d=0;if(e.top1){g++;if(e.done1)d++}if(e.top2){g++;if(e.done2)d++}if(e.top3){g++;if(e.done3)d++}return g?clamp(d/g*100):0}
+function mindScore(e){var pos=(n(e.moodOverall)*10+n(e.gratitude)*10+n(e.focusScore)*10)/3;var neg=avg([e.depression,e.anger,e.irritation,e.sadness,e.rage,e.anxiety,e.stress]);if(pos===0&&neg===0)return 0;return clamp(pos*.55+(100-neg*10)*.45)}
+function evalPeriod(kind,base){var p=period(kind,base),arr=periodEntries(p),days=Math.max(1,Math.round((dateObj(p.end)-dateObj(p.start))/86400000)+1);var income=sum(arr,'cashIn'),expense=sum(arr,'cashOut'),net=income-expense,workout=sum(arr,'workoutMin');var sleepAvg=avg(arr.map(function(e){return n(e.sleepHours)}).filter(function(x){return x>0}));var workHours=sum(arr,'siteHours')+sum(arr,'lessonHours')+sum(arr,'studyHours')+sum(arr,'youtubeMin')/60;var health=arr.length?avg(arr.map(function(e){var sleep=clamp(100-Math.abs(n(e.sleepHours)-(state.settings.targetSleep||7))*22);if(!n(e.sleepHours))sleep=0;var ex=clamp(n(e.workoutMin)/(state.settings.dailyExercise||30)*100);var bp=(n(e.sbp)>=140||n(e.dbp)>=90)?45:((n(e.sbp)||n(e.dbp))?90:70);var body=n(e.bodyScore)?n(e.bodyScore)*10:70;var pain=100-n(e.painScore)*10;return sleep*.25+ex*.25+bp*.2+body*.2+pain*.1})):0;var wealth=arr.length?clamp(((income/Math.max(1,(state.settings.monthlyIncome||1)*(days/30.4)))*35)+((net>=0?70:30))+((latest(arr,'loanRemaining')?Math.max(20,100-latest(arr,'loanRemaining')/Math.max(1,state.settings.targetMaxLoan)*45):70)*.2)):0;var work=arr.length?clamp(workHours/((state.settings.dailyWork||10)*Math.max(1,arr.length))*100):0;var mind=arr.length?avg(arr.map(mindScore)):0;var goals=arr.length?avg(arr.map(goalScore)):0;var life=arr.length?avg(arr.map(function(e){return (n(e.familyHours)/1.5*30)+(n(e.spouseTalkMin)/20*25)+(n(e.coupleQuality)?n(e.coupleQuality)*3:20)+(100-n(e.conflictLevel)*10)*.15})):0;life=clamp(life);var total=clamp(health*.20+wealth*.25+work*.20+mind*.15+goals*.15+life*.05);return {p:p,arr:arr,total:total,health:health,wealth:wealth,work:work,mind:mind,goals:goals,life:life,income:income,expense:expense,net:net,workout:workout,sleep:sleepAvg,workHours:workHours,loanRemaining:latest(arr,'loanRemaining')||latest(arr,'debt'),loanTotal:latest(arr,'loanTotal')||latest(arr,'loanRemaining')||latest(arr,'debt'),loanRate:latest(arr,'loanInterestRate'),newLoan:sum(arr,'newLoan'),loanPayment:sum(arr,'loanPayment'),principal:sum(arr,'loanPrincipalPaid'),interest:sum(arr,'loanInterestPaid')}}
+function grade(x){if(x>=90)return'S';if(x>=80)return'A';if(x>=70)return'B';if(x>=60)return'C';if(x>=45)return'D';return'E'}
+function next(ev){if(!ev.arr.length)return'기록 탭에서 오늘 기록 1개만 넣으세요. 기록이 쌓이면 패턴이 보입니다.';var vals=[['건강',ev.health],['돈/투자',ev.wealth],['일/생산',ev.work],['마음',ev.mind],['목표실행',ev.goals],['관계/생활',ev.life]];vals.sort(function(a,b){return a[1]-b[1]});if(vals[0][0]==='돈/투자')return'돈 지표가 약합니다. 오늘은 지출·대출잔액·이자율·투자손익을 감정 없이 기록하는 것이 1수입니다.';if(vals[0][0]==='건강')return'몸 지표가 약합니다. 고강도보다 수면·혈압·가벼운 운동 기록부터 복구하세요.';if(vals[0][0]==='마음')return'마음 지표가 약합니다. 우울/화남/걱정을 분리해서 숫자로 적으세요. 감정은 이름 붙이면 통제력이 생깁니다.';return vals[0][0]+' 축이 가장 약합니다. 내일 목표를 1개로 줄여 반드시 끝내세요.'}
+function renderAll(){var ad=el('analysisDate')&&el('analysisDate').value?el('analysisDate').value:(el('date')&&el('date').value?el('date').value:today());var kind=el('analysisPeriod')?el('analysisPeriod').value:'day';var ev=evalPeriod(kind,ad);el('periodText').textContent=ev.p.start===ev.p.end?ev.p.start:ev.p.start+' ~ '+ev.p.end+' · 기록 '+ev.arr.length+'개';el('scoreNum').textContent=Math.round(ev.total);el('scoreRing').style.background='conic-gradient(var(--accent) '+Math.round(ev.total)+'%, #223047 0)';el('gradeText').textContent=grade(ev.total)+' 등급';el('mNet').textContent=won(ev.net);el('mCashHint').textContent='수입 '+won(ev.income)+' / 지출 '+won(ev.expense);el('mWorkout').textContent=Math.round(ev.workout)+'분';el('mSleep').textContent=one(ev.sleep)+'h';el('mWork').textContent=one(ev.workHours)+'h';el('mLoanLeft').textContent=won(ev.loanRemaining);el('mLoanHint').textContent='총 '+won(ev.loanTotal)+' / 신규 '+won(ev.newLoan)+' / 원금상환 '+won(ev.principal);el('mLoanRate').textContent=one(ev.loanRate)+'%';el('mLoanPayHint').textContent='월상환 '+won(ev.loanPayment)+' / 이자납부 '+won(ev.interest);el('nextAction').textContent=next(ev);renderDomains(ev);renderFlags(ev);renderRecords(ev);renderChart();renderSettings();renderSummary(ev)}
+function renderDomains(ev){var html='',names=[['몸/건강',ev.health],['돈/투자',ev.wealth],['일/생산',ev.work],['마음',ev.mind],['목표실행',ev.goals],['관계/생활',ev.life]];for(var i=0;i<names.length;i++){var v=Math.round(names[i][1]);html+='<div class="domain"><span>'+names[i][0]+'</span><div class="bar"><i style="width:'+v+'%"></i></div><em>'+v+'</em></div>'}el('domainBars').innerHTML=html}
+function renderFlags(ev){var f=[];if(!ev.arr.length)f.push(['bad','기록 없음']);if(ev.net<0)f.push(['warn','현금흐름 음수']);if(ev.loanRate>=8)f.push(['warn','고금리 대출']);if(ev.health<50)f.push(['bad','건강 회복 필요']);if(!f.length)f.push(['good','큰 경고 없음']);var h='';for(var i=0;i<f.length;i++)h+='<span class="pill '+f[i][0]+'">'+f[i][1]+'</span>';el('flags').innerHTML=h}
+function renderRecords(){var arr=[];for(var k in state.entries)arr.push(state.entries[k]);arr.sort(function(a,b){return a.date<b.date?1:-1});var h='';for(var i=0;i<Math.min(arr.length,20);i++){var e=arr[i],net=n(e.cashIn)-n(e.cashOut);h+='<div class="record"><b>'+e.date+' · '+(e.dayTag||'기록')+'</b><small>순현금 '+won(net)+' · 운동 '+n(e.workoutMin)+'분 · 수면 '+one(e.sleepHours)+'h · 남은대출 '+won(e.loanRemaining||e.debt)+'</small><div class="btns"><button class="btn ghost" type="button" onclick="editEntry(\''+e.date+'\')">수정</button></div></div>'}el('recordList').innerHTML=h||'<div class="sub">아직 기록이 없습니다.</div>'}
+function editEntry(d){putEntryToForm(state.entries[d]||blankEntry(d));location.hash='record'}
+function renderChart(){var arr=[];for(var k in state.entries)arr.push(state.entries[k]);arr.sort(function(a,b){return a.date>b.date?1:-1});arr=arr.slice(-14);var h='';for(var i=0;i<arr.length;i++){var sc=Math.max(4,Math.round(evalPeriod('day',arr[i].date).total));h+='<div class="col" style="height:'+sc+'%"></div>'}el('scoreChart').innerHTML=h||'<div class="sub">기록 없음</div>'}
+function renderSummary(ev){el('analysisSummary').innerHTML='기간: <b>'+ev.p.start+' ~ '+ev.p.end+'</b><br>종합점수: <b>'+Math.round(ev.total)+' / '+grade(ev.total)+'</b><br>순현금흐름: <b>'+won(ev.net)+'</b><br>남은 대출: <b>'+won(ev.loanRemaining)+'</b><br>이자율: <b>'+one(ev.loanRate)+'%</b><br>다음 1수: '+next(ev)}
+function renderSettings(){var s=state.settings;var map={setTargetWeight:'targetWeight',setDailyExercise:'dailyExercise',setWeeklyExercise:'weeklyExercise',setTargetSleep:'targetSleep',setDailyWork:'dailyWork',setMonthlyIncome:'monthlyIncome',setMonthlyNet:'monthlyNet',setTargetMaxLoan:'targetMaxLoan',setMonthlyLoanPay:'monthlyLoanPay',setYearGoals:'yearGoals'};for(var id in map){if(el(id))el(id).value=s[map[id]]}}
+function saveSettings(){state.settings={targetWeight:n(el('setTargetWeight').value),dailyExercise:n(el('setDailyExercise').value),weeklyExercise:n(el('setWeeklyExercise').value),targetSleep:n(el('setTargetSleep').value),dailyWork:n(el('setDailyWork').value),monthlyIncome:n(el('setMonthlyIncome').value),monthlyNet:n(el('setMonthlyNet').value),targetMaxLoan:n(el('setTargetMaxLoan').value),monthlyLoanPay:n(el('setMonthlyLoanPay').value),yearGoals:el('setYearGoals').value};saveState();setStatus('목표 설정 저장 완료',true);renderAll()}
+function resetSettings(){state.settings=copy(defaults);saveState();renderAll();setStatus('목표 기본값 복구 완료',true)}
+function exportJson(){download('my-palantir-backup.json',JSON.stringify(state,null,2),'application/json')}
+function exportCsv(){var rows=[fields.join(',')],arr=[];for(var k in state.entries)arr.push(state.entries[k]);arr.sort(function(a,b){return a.date>b.date?1:-1});for(var i=0;i<arr.length;i++){var e=arr[i],row=[];for(var j=0;j<fields.length;j++){var v=String(e[fields[j]]==null?'':e[fields[j]]).replace(/"/g,'""');row.push('"'+v+'"')}rows.push(row.join(','))}download('my-palantir-records.csv',rows.join('\n'),'text/csv;charset=utf-8')}
+function download(name,text,type){try{var blob=new Blob([text],{type:type});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000)}catch(e){alert('다운로드 실패: '+e.message)}}
+function copySummary(){var ev=evalPeriod('week',today());var txt='My Palantir 주간요약\n점수 '+Math.round(ev.total)+' / '+grade(ev.total)+'\n순현금 '+won(ev.net)+'\n남은대출 '+won(ev.loanRemaining)+'\n운동 '+Math.round(ev.workout)+'분\n다음 1수: '+next(ev);if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){alert('복사 완료')},function(){alert(txt)})}else alert(txt)}
+function wipeAll(){if(confirm('전체 기록을 삭제할까요?')){localStorage.removeItem(KEY);loadState();putEntryToForm(blankEntry(today()));renderAll();setStatus('전체 초기화 완료',true)}}
+function init(){try{loadState();if(!state.settings)state.settings=copy(defaults);for(var k in defaults){if(state.settings[k]===undefined)state.settings[k]=defaults[k]}el('todayText').textContent=new Date().toLocaleDateString('ko-KR');if(el('date'))el('date').value=today();if(el('analysisDate'))el('analysisDate').value=today();putEntryToForm(state.entries[today()]||blankEntry(today()));if(el('date'))el('date').onchange=loadByDate;if(el('analysisDate'))el('analysisDate').onchange=renderAll;if(el('analysisPeriod'))el('analysisPeriod').onchange=renderAll;if(el('importFile'))el('importFile').onchange=function(evt){var file=evt.target.files[0];if(!file)return;var r=new FileReader();r.onload=function(){try{var data=JSON.parse(r.result);if(data.entries&&data.settings){state=data;saveState();renderAll();setStatus('JSON 가져오기 완료',true)}else alert('백업 파일 형식이 맞지 않습니다.')}catch(e){alert('JSON 읽기 실패')}};r.readAsText(file)};renderAll();setStatus('작동 정상: 입력칸을 누르고 저장할 수 있습니다.',true)}catch(e){setStatus('오류 발생: '+e.message,false)}}
+init();
+</script>
+</body>
+</html>
